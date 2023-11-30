@@ -11,6 +11,7 @@ public class Profile
         pID = id;
         fName = fn; lName = ln;
     }
+    public int getpID () { return pID; }
     public String getfName ()
     {
         return fName;

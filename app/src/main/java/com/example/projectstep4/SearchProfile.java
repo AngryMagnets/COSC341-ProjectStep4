@@ -32,4 +32,39 @@ public class SearchProfile extends Profile
         smokingInGroup = sa;
         needHelpMovingItems = nhm;
     }
+
+    public HashMap<String, Integer> getPetsInGroup ()
+    {
+        return petsInGroup;
+    }
+
+    public String[] getDisabilityAccommodations ()
+    {
+        return disabilityAccommodations;
+    }
+
+    public int getPeopleInGroup ()
+    {
+        return peopleInGroup;
+    }
+
+    public int getChildrenInGroup ()
+    {
+        return childrenInGroup;
+    }
+
+    public int getDesiredProximityToBus ()
+    {
+        return desiredProximityToBus;
+    }
+
+    public boolean isSmokingInGroup ()
+    {
+        return smokingInGroup;
+    }
+
+    public boolean isNeedHelpMovingItems ()
+    {
+        return needHelpMovingItems;
+    }
 }
