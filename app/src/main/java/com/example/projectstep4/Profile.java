@@ -4,9 +4,11 @@ import java.util.Map;
 
 public class Profile
 {
+    private int pID;
     private String fName, lName;
-    public Profile (String fn, String ln)
+    public Profile (int id, String fn, String ln)
     {
+        pID = id;
         fName = fn; lName = ln;
     }
     public String getfName ()

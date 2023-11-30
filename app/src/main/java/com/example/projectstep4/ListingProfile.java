@@ -12,9 +12,9 @@ public class ListingProfile extends Profile
           , smokingAllowed
           , willHelpMoveItems;
 
-    public ListingProfile (String fn, String ln, String[] petTypes, Integer[] petNums, String[] disability, int people, int busProx, boolean ca, boolean sa, boolean whm)
+    public ListingProfile (int id, String fn, String ln, String[] petTypes, Integer[] petNums, String[] disability, int people, int busProx, boolean ca, boolean sa, boolean whm)
     {
-        super (fn, ln);
+        super (id, fn, ln);
         petsAllowed = new HashMap<>();
         for (int i = 0; i < petTypes.length; i++)
         {

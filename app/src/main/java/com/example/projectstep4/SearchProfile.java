@@ -17,9 +17,9 @@ public class SearchProfile extends Profile
           , needHelpMovingItems;
 
 
-    public SearchProfile (String fn, String ln, String[] petTypes, Integer[] petNums, String[] disability, int people, int children, int busProx,  boolean sa, boolean nhm)
+    public SearchProfile (int id, String fn, String ln, String[] petTypes, Integer[] petNums, String[] disability, int people, int children, int busProx,  boolean sa, boolean nhm)
     {
-        super (fn, ln);
+        super (id, fn, ln);
         petsInGroup = new HashMap<>();
         for (int i = 0; i < petTypes.length; i++)
         {
