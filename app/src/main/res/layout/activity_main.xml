@@ -10,7 +10,7 @@
         android:id="@+id/chatsButton"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:text="Chat Prototype"
+        android:text="Task 2: Chat Prototype"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -19,13 +19,53 @@
         app:layout_constraintVertical_bias="0.423" />
 
     <Button
+        android:id="@+id/listingMakeButton"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:text="Task 1: Make Listing Prototype"
+        android:onClick="task1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.352" />
+
+    <Button
+        android:id="@+id/newsButton"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:text="Task 4: Check News/Map Prototype"
+        android:onClick="task4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.579" />
+
+    <Button
+        android:id="@+id/reportMakeButton"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:text="Task 5: Make Disaster Report Prototype"
+        android:onClick="task5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.661" />
+
+    <Button
         android:id="@+id/listingSearchButton"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:text="Listing Search Prototype"
+        android:text="Task 3: Listing Search Prototype"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/chatsButton"
         app:layout_constraintStart_toStartOf="@+id/chatsButton"
         app:layout_constraintTop_toBottomOf="@+id/chatsButton"
         app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

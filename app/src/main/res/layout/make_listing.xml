@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_grey"
+    tools:context=".MakeListing">
+
+    <TextView
+        android:id="@+id/question2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="140dp"
+        android:text="Describe your accommodations:"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/question8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="306dp"
+        android:text="Does your accommodation offer any accessibility options?"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/question9"
+        android:layout_width="272dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="376dp"
+        android:text="Does your accommodation have any pets?"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/question10"
+        android:layout_width="370dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="28dp"
+        android:background="@color/bg_grey"
+        android:gravity="start|center"
+        android:text="Any rules or additional info that guests should know:"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/answer4"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="700dp"
+        android:backgroundTint="@color/ui_blue"
+        android:lineSpacingExtra="0sp"
+        android:onClick="next"
+        android:text="Next"
+        android:textSize="14sp"
+        app:cornerRadius="2dp"
+        app:iconPadding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="700dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/ui_blue"
+        android:text="Save Draft and Exit"
+        android:textSize="14sp"
+        app:cornerRadius="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/ui_blue"
+        android:text="Back"
+        app:cornerRadius="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/question1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="65dp"
+        android:text="What type of accommodation will guests have?"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/answer1"
+        android:layout_width="348dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/roundedcorners"
+        android:ems="10"
+        android:hint="eg. Entire house, room, shared room"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question1" />
+
+    <EditText
+        android:id="@+id/answer3"
+        android:layout_width="348dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/roundedcorners"
+        android:ems="10"
+        android:hint="If yes, mention species and if they are hypoallergenic"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question9" />
+
+
+    <EditText
+        android:id="@+id/answer2"
+        android:layout_width="348dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/roundedcorners"
+        android:ems="10"
+        android:hint="eg. ramps, elavators"
+        android:inputType="text"
+
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question8" />
+
+    <EditText
+        android:id="@+id/backing1"
+        android:layout_width="348dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/roundedcorners"
+        android:clickable="false"
+        android:editable="false"
+        android:ems="10"
+        android:gravity="top|start"
+        android:inputType="none"
+        android:paddingLeft="10dp"
+
+        android:paddingTop="5dp"
+        android:scrollbars="vertical"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question2"
+        tools:ignore="Deprecated" />
+
+    <TextView
+        android:id="@+id/question3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:text="Maximum number of guests:"
+        app:layout_constraintStart_toStartOf="@+id/backing1"
+        app:layout_constraintTop_toBottomOf="@+id/question2" />
+
+    <TextView
+        android:id="@+id/question5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="60dp"
+        android:text="Bathrooms:"
+        app:layout_constraintStart_toStartOf="@+id/backing1"
+        app:layout_constraintTop_toBottomOf="@+id/question2" />
+
+    <TextView
+        android:id="@+id/question6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="85dp"
+        android:text="Laundry:"
+        app:layout_constraintStart_toStartOf="@+id/backing1"
+        app:layout_constraintTop_toBottomOf="@+id/question2" />
+
+    <TextView
+        android:id="@+id/question7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="110dp"
+        android:text="Kitchen Access:"
+        app:layout_constraintStart_toStartOf="@+id/backing1"
+        app:layout_constraintTop_toBottomOf="@+id/question2" />
+
+    <TextView
+        android:id="@+id/question4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="35dp"
+        android:text="Amount of beds:"
+        app:layout_constraintStart_toStartOf="@+id/backing1"
+        app:layout_constraintTop_toBottomOf="@+id/question2" />
+
+    <CheckBox
+        android:id="@+id/laundry"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="@+id/backing1"
+        app:layout_constraintTop_toTopOf="@+id/backing1" />
+
+    <CheckBox
+        android:id="@+id/kitchen"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/backing1"
+        app:layout_constraintEnd_toEndOf="@+id/backing1" />
+
+    <EditText
+        android:id="@+id/guests"
+        android:layout_width="35dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="3"
+        android:paddingTop="0dp"
+        android:paddingBottom="4dp"
+        android:text="1"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/backing1"
+        app:layout_constraintTop_toTopOf="@+id/backing1" />
+
+    <EditText
+        android:id="@+id/bathrooms"
+        android:layout_width="35dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="55dp"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="3"
+        android:paddingTop="0dp"
+        android:paddingBottom="4dp"
+        android:text="1"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/backing1"
+        app:layout_constraintTop_toTopOf="@+id/backing1" />
+
+    <EditText
+        android:id="@+id/beds"
+        android:layout_width="35dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="3"
+        android:paddingTop="0dp"
+        android:paddingBottom="4dp"
+        android:text="1"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/backing1"
+        app:layout_constraintTop_toTopOf="@+id/backing1" />
+
+    <EditText
+        android:id="@+id/answer4"
+        android:layout_width="348dp"
+        android:layout_height="131dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="310dp"
+        android:background="@drawable/roundedcorners"
+        android:clipToOutline="true"
+        android:ems="10"
+        android:gravity="top|start"
+        android:hint="eg. no smoking, no pets, no children"
+        android:inputType="textMultiLine"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

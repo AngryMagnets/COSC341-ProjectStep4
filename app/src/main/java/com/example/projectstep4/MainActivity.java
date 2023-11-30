@@ -36,4 +36,15 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
+
+    public void task1(View view){
+        Intent intent = new Intent(this, MakeListing.class);
+        startActivity(intent);
+    }
+    public void task4(View view){
+
+    }
+    public void task5(View view){
+
+    }
 }
