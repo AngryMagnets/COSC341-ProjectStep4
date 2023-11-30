@@ -16,7 +16,6 @@ public class Profile
     {
         return fName;
     }
-
     public String getlName ()
     {
         return lName;

@@ -175,6 +175,7 @@
         android:ems="10"
         android:hint="Name"
         android:inputType="text"
+        android:background="@drawable/bg_white"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintStart_toStartOf="@+id/scrollView2"
         app:layout_constraintTop_toTopOf="parent"
