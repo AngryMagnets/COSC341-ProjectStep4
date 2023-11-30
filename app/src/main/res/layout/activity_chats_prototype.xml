@@ -31,14 +31,15 @@
                     android:id="@+id/chatImage1"
                     android:layout_width="89dp"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/bg_white"
                     app:srcCompat="@drawable/default_pfp" />
 
                 <Button
                     android:id="@+id/chat1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/btn_white"
                     android:textAlignment="textStart"
-                    android:background="@drawable/bg_white"
                     tools:text="\tChat 1" />
 
             </LinearLayout>
@@ -52,14 +53,15 @@
                     android:id="@+id/chatImage2"
                     android:layout_width="89dp"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/btn_white"
                     app:srcCompat="@drawable/default_pfp" />
 
                 <Button
                     android:id="@+id/chat2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/btn_white"
                     android:textAlignment="textStart"
-                    android:background="@drawable/bg_white"
                     tools:text="\tChat 2" />
             </LinearLayout>
             <LinearLayout
@@ -71,14 +73,15 @@
                     android:id="@+id/chatImage3"
                     android:layout_width="89dp"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/default_pfp"/>
+                    android:background="@drawable/btn_white"
+                    app:srcCompat="@drawable/default_pfp" />
 
                 <Button
                     android:id="@+id/chat3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/btn_white"
                     android:textAlignment="textStart"
-                    android:background="@drawable/bg_white"
                     tools:text="\tChat 3" />
             </LinearLayout>
             <LinearLayout
@@ -90,14 +93,15 @@
                     android:id="@+id/chatImage4"
                     android:layout_width="89dp"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/default_pfp"/>
+                    android:background="@drawable/bg_white"
+                    app:srcCompat="@drawable/default_pfp" />
 
                 <Button
                     android:id="@+id/chat4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/btn_white"
                     android:textAlignment="textStart"
-                    android:background="@drawable/bg_white"
                     tools:text="\tChat 4" />
             </LinearLayout>
             <LinearLayout
@@ -109,14 +113,15 @@
                     android:id="@+id/chatImage5"
                     android:layout_width="89dp"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/default_pfp"/>
+                    android:background="@drawable/bg_white"
+                    app:srcCompat="@drawable/default_pfp" />
 
                 <Button
                     android:id="@+id/chat5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/btn_white"
                     android:textAlignment="textStart"
-                    android:background="@drawable/bg_white"
                     tools:text="\tChat 5" />
             </LinearLayout>
             <LinearLayout
@@ -128,7 +133,8 @@
                     android:id="@+id/chatImage6"
                     android:layout_width="89dp"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/default_pfp"/>
+                    android:background="@drawable/bg_white"
+                    app:srcCompat="@drawable/default_pfp" />
 
                 <Button
                     android:id="@+id/chat6"
@@ -147,14 +153,15 @@
                     android:id="@+id/chatImage7"
                     android:layout_width="89dp"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/default_pfp"/>
+                    android:background="@drawable/bg_white"
+                    app:srcCompat="@drawable/default_pfp" />
 
                 <Button
                     android:id="@+id/chat7"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/btn_white"
                     android:textAlignment="textStart"
-                    android:background="@drawable/bg_white"
                     tools:text="\tChat 7" />
             </LinearLayout>
         </LinearLayout>
@@ -164,6 +171,7 @@
         android:id="@+id/editTextText"
         android:layout_width="284dp"
         android:layout_height="50dp"
+        android:background="@drawable/bg_white"
         android:ems="10"
         android:hint="Name"
         android:inputType="text"
