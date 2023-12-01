@@ -24,4 +24,39 @@ public class ListingProfile extends Profile
         peopleAllowed = people;
         childrenAllowed = ca;
     }
+
+    public HashMap<String, Integer> getPetsAllowed ()
+    {
+        return petsAllowed;
+    }
+
+    public String[] getDisabilityAccommodations ()
+    {
+        return disabilityAccommodations;
+    }
+
+    public int getPeopleAllowed ()
+    {
+        return peopleAllowed;
+    }
+
+    public int getProximityToBus ()
+    {
+        return proximityToBus;
+    }
+
+    public boolean isChildrenAllowed ()
+    {
+        return childrenAllowed;
+    }
+
+    public boolean isSmokingAllowed ()
+    {
+        return smokingAllowed;
+    }
+
+    public boolean isWillHelpMoveItems ()
+    {
+        return willHelpMoveItems;
+    }
 }

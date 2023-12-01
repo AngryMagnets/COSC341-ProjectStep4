@@ -27,7 +27,7 @@ public class ChatsPrototype extends AppCompatActivity
 
         for (int i = 0; i < numChats; i++)
         {
-            int finalI = i;
+            int finalI = i+1;
             chats[i].setOnClickListener(new View.OnClickListener()
             {
                 @Override

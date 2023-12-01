@@ -7,4 +7,6 @@
     <color name="high_red">#EB9683</color>
     <color name="mid_orange">#FBD09B</color>
     <color name="low_yellow">#FEE7A2</color>
+    <color name="msg_sent">#FF9CD3F0</color>
+    <color name="msg_rcvd">#F0B99C</color>
 </resources>
