@@ -18,4 +18,12 @@ public class MakeListing extends AppCompatActivity {
         Intent intent = new Intent(this,ImageUpload.class);
         startActivity(intent);
     }
+    public void back(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    public void draft(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }

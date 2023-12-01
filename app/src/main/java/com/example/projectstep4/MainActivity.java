@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
     }
     public void task4(View view){
-
+        Intent intent = new Intent(this, NewsActivity.class);
+        startActivity(intent);
     }
     public void task5(View view){
 

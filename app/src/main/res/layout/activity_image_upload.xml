@@ -16,6 +16,7 @@
         android:backgroundTint="@color/ui_blue"
         android:lineSpacingExtra="0sp"
         android:text="Submit"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:cornerRadius="2dp"
         app:iconPadding="8dp"
@@ -30,6 +31,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/ui_blue"
         android:text="Save Draft and Exit"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:cornerRadius="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,6 +46,7 @@
         android:backgroundTint="@color/ui_blue"
         android:onClick="back"
         android:text="Back"
+        android:textColor="#FFFFFF"
         app:cornerRadius="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
