@@ -14,6 +14,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/btn_ui_general"
         android:text="Back"
+        android:onClick="back"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView5"

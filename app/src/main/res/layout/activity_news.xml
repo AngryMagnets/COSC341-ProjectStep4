@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_grey"
+    tools:context=".NewsActivity">
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/ui_blue"
+        android:text="Back"
+        android:onClick="back"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/mapButton"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/ui_blue"
+        android:onClick="map"
+        android:text="disaster Map"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="102dp"
+        android:text="News Near You"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/article1"
+        android:layout_width="328dp"
+        android:layout_height="165dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="42dp"
+        android:onClick="news1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:srcCompat="@drawable/roundedcornersred" />
+
+    <ImageButton
+        android:id="@+id/article2"
+        android:layout_width="328dp"
+        android:layout_height="165dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="42dp"
+        android:onClick="news2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/article1"
+        app:srcCompat="@drawable/roundedcornersorange" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Post-Fire Hazards on Knox Mountain"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/article2"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/article2"
+        app:layout_constraintTop_toTopOf="@+id/article2" />
+
+    <ImageButton
+        android:id="@+id/article3"
+        android:layout_width="328dp"
+        android:layout_height="165dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="42dp"
+        android:onClick="news3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/article2"
+        app:srcCompat="@drawable/roundedcornersyellow" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="323dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/severity" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Kelowna Airport Shut Down"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/article1"
+        app:layout_constraintStart_toStartOf="@+id/article1"
+        app:layout_constraintTop_toTopOf="@+id/article1" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="4.7 Magnitude Earthquake Aftershock"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/article3"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/article3"
+        app:layout_constraintTop_toTopOf="@+id/article3" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Airport says closure is necessary for community \nsafety and to allow aerial firefighters to work"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/article1"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/article1"
+        app:layout_constraintTop_toTopOf="@+id/article1" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="275dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="48dp"
+        android:text="Officials however say the Knox Mountain wildfire could have been a lot worse"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/article2"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="@+id/article2"
+        app:layout_constraintTop_toTopOf="@+id/article2" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="291dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="48dp"
+        android:text="A 4.7 magnitude earthquake was detected near a village in British Columbia early on Tuesday morning"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/article3"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="@+id/article3"
+        app:layout_constraintTop_toTopOf="@+id/article3" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="298dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="88dp"
+        android:text="The airspace above Kelowna International Airport was closed on Friday morning and most flights have been cancelled to make space for aerial crews fighting the aggressive wildfires in the area in and around the city in British Columbia's Okanagan Valley...
+"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/article1"
+        app:layout_constraintStart_toStartOf="@+id/article1"
+        app:layout_constraintTop_toTopOf="@+id/article1" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="298dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="88dp"
+        android:text="Hot spots from Kelowna’s Knox Mountain wildfire will continue to smoulder and concerns about hazards such as sinkholes created by burning trees roots will linger.
+\nBut, as of Tuesday morning, all evacuation alerts and the state of emergency..."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/article2"
+        app:layout_constraintStart_toStartOf="@+id/article2"
+        app:layout_constraintTop_toTopOf="@+id/article2" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="294dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="92dp"
+        android:text="The tremor, which occurred at 5:14 a.m. on Aug. 15, was located 70 kilometres south of Daajing Giids and 222 kilometres southwest of Prince Rupert. Earthquakes Canada noted its depth at 22.4 kilometres on its website..."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/article3"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="@+id/article3"
+        app:layout_constraintTop_toTopOf="@+id/article3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

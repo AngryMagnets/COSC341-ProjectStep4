@@ -127,4 +127,8 @@ public class ChatMessages extends AppCompatActivity
 
         }
     }
+    public void back(){
+        Intent intent = new Intent(this, ChatsPrototype.class);
+        startActivity(intent);
+    }
 }
