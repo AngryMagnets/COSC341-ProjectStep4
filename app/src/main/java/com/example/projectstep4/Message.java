@@ -5,13 +5,13 @@ import java.sql.Date;
 public class Message
 {
     String chatID, content;
-    Date timeStamp;
+//    Date timeStamp;
 
-    public Message(String senderID, String receiverID, String c, Date t)
+    public Message(String senderID, String receiverID, String c)
     {
         chatID = senderID + "_" + receiverID;
         content = c;
-        timeStamp = t;
+//        timeStamp = t;
     }
 
     public String getChatID ()
@@ -22,8 +22,8 @@ public class Message
     {
         return content;
     }
-    public Date getTimeStamp ()
-    {
-        return timeStamp;
-    }
+//    public Date getTimeStamp ()
+//    {
+//        return timeStamp;
+//    }
 }

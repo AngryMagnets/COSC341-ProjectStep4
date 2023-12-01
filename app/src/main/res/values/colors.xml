@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="ui_blue">#FF0D99FF</color>
     <color name="bg_grey">#FFE6E6E6</color>
+    <color name="msg_sent">#FF9CD3F0</color>
+    <color name="msg_rcvd">#F0B99C</color>
 </resources>
