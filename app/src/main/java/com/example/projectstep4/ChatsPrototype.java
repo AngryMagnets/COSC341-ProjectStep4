@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
 
@@ -18,6 +20,7 @@ public class ChatsPrototype extends AppCompatActivity
 
         int numChats = 7;
         Button[] chats = new Button[numChats];
+        EditText nameSearch = findViewById(R.id.typeSearchHere);
 
         for (int i = 0; i < numChats; i++)
         {
@@ -39,5 +42,45 @@ public class ChatsPrototype extends AppCompatActivity
                 }
             });
         }
+
+        nameSearch.addTextChangedListener(new TextWatcher()
+        {
+            @Override
+            public void beforeTextChanged (CharSequence s, int start, int count, int after)
+            {
+
+            }
+
+            @Override
+            public void onTextChanged (CharSequence s, int start, int before, int count)
+            {
+
+            }
+
+            @Override
+            public void afterTextChanged (Editable s)
+            {
+                String t = s.toString();
+                ImageView[] pfps = new ImageView[numChats];
+                for (int i = 0; i < numChats; i++)
+                {
+                    int id = getResources().getIdentifier("chatImage"+(i+1), "id", getPackageName());
+                    pfps[i] = (ImageView) findViewById(id);
+                }
+                for (int i = 0; i < numChats; i++)
+                {
+                    if (chats[i].getText().toString().contains(t))
+                    {
+                        chats[i].setVisibility(View.VISIBLE);
+                        pfps[i].setVisibility(View.VISIBLE);
+                    }
+                    else
+                    {
+                        chats[i].setVisibility(View.GONE);
+                        pfps[i].setVisibility(View.GONE);
+                    }
+                }
+            }
+        });
     }
 }
