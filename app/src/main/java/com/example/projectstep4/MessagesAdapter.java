@@ -67,9 +67,8 @@ public class MessagesAdapter extends RecyclerView.Adapter
     @Override
     public int getItemViewType(int position)
     {
-        Message messages = messagesArrayList.get(position);
-        if(true /*sender ID*/)
-
+        Message message = messagesArrayList.get(position);
+        if(message.chatID.substring(0, message.chatID.indexOf("_")).equals(userID))
         {
             return  ITEM_SEND;
         }

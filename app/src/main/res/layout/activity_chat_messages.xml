@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.029" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/typeMessageHere"
         android:layout_width="318dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -77,7 +77,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/editTextText2"
+        app:layout_constraintStart_toEndOf="@+id/typeMessageHere"
         app:layout_constraintTop_toBottomOf="@+id/scrollView3"
         app:layout_constraintVertical_bias="0.986" />
 </androidx.constraintlayout.widget.ConstraintLayout>
