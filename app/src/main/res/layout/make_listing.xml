@@ -306,7 +306,7 @@
         android:layout_width="348dp"
         android:layout_height="131dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="310dp"
+        android:layout_marginTop="400dp"
         android:background="@drawable/roundedcorners"
         android:clipToOutline="true"
         android:ems="10"
@@ -317,7 +317,6 @@
         android:paddingTop="5dp"
         android:singleLine="true"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -67,5 +67,116 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="110dp"
+        android:text="What kind of disaster did you encounter?"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="364dp"
+        android:text="Provide more detail if other:"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/backing1"
+        android:layout_width="348dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/roundedcorners"
+        android:clickable="false"
+        android:editable="false"
+        android:ems="10"
+        android:gravity="top|start"
+        android:inputType="none"
+
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:scrollbars="vertical"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Deprecated" />
+
+    <EditText
+        android:id="@+id/backing2"
+        android:layout_width="348dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="400dp"
+        android:background="@drawable/roundedcorners"
+        android:clickable="false"
+        android:editable="false"
+        android:ems="10"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"
+
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:scrollbars="vertical"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Deprecated" />
+
+    <RadioGroup
+        android:layout_width="348dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="@+id/backing1"
+        app:layout_constraintEnd_toEndOf="@+id/backing1"
+        app:layout_constraintStart_toStartOf="@+id/backing1"
+        app:layout_constraintTop_toTopOf="@+id/backing1">
+
+        <RadioButton
+            android:id="@+id/fire"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:buttonTint="#FF0000"
+            android:text="Fire" />
+
+        <RadioButton
+            android:id="@+id/flood"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:buttonTint="#FF0000"
+            android:text="Flooding" />
+
+        <RadioButton
+            android:id="@+id/earthquake"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:buttonTint="#FF0000"
+            android:text="Earthquake" />
+
+        <RadioButton
+            android:id="@+id/other"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:buttonTint="#FF0000"
+            android:text="Other (ex. hurricane, blizzard)" />
+    </RadioGroup>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
