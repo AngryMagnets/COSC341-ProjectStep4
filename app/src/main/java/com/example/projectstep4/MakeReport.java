@@ -18,4 +18,8 @@ public class MakeReport extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+    public void next(View view){
+        Intent intent = new Intent(this, MakeReport2.class);
+        startActivity(intent);
+    }
 }
