@@ -8,7 +8,7 @@
     tools:context=".ImageUpload">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/next"
         android:layout_width="175dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"

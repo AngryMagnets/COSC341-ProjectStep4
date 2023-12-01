@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
     }
     public void task5(View view){
-
+        Intent intent = new Intent(this, MakeReport.class);
+        startActivity(intent);
     }
 }
