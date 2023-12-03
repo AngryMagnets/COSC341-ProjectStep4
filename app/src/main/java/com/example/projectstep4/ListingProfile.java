@@ -29,6 +29,20 @@ public class ListingProfile extends Profile
         peopleAllowed = people;
         childrenAllowed = ca;
     }
+    public ListingProfile (String l, String pCode, String[] petTypes, Integer[] petNums, String[] disability, int people, int busProx, boolean ca, boolean sa, boolean whm)
+    {
+        super (-1, "", "");
+        location = l; postalCode = pCode;
+
+        petsAllowed = new HashMap<>();
+        for (int i = 0; i < petTypes.length; i++)
+        {
+            petsAllowed.put(petTypes[i],petNums[i]);
+        }
+        disabilityAccommodations = disability;
+        peopleAllowed = people;
+        childrenAllowed = ca;
+    }
 
     public HashMap<String, Integer> getPetsAllowed ()
     {
