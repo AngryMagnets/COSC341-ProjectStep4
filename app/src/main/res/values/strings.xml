@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Project Step 4</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string-array name="busProximity">
+        <item>0 - &lt;10 minute walk</item>
+        <item>1 - &lt;20 minute walk</item>
+        <item>2 - &lt;30 minute walk</item>
+        <item>3 - &lt;60 minute walk</item>
+    </string-array>
 </resources>
