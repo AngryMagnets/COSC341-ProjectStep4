@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectStep4"
         tools:targetApi="34">
-
+        <activity
+            android:name=".DisasterMap"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

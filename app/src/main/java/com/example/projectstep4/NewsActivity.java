@@ -19,6 +19,8 @@ public class NewsActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void map(View view){
+        Intent intent = new Intent(this, DisasterMap.class);
+        startActivity(intent);
     }
 
     public void news1(View view){

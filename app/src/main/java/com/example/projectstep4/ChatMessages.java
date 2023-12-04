@@ -12,7 +12,6 @@ import android.widget.EditText;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ChatMessages extends AppCompatActivity
 {
