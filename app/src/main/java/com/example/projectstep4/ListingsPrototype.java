@@ -1,6 +1,8 @@
 package com.example.projectstep4;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,8 +28,10 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.projectstep4.databinding.ActivityListingsPrototypeBinding;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class ListingsPrototype extends FragmentActivity implements OnMapReadyCallback
@@ -66,9 +71,34 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
         petTypes = new String[]{"Rodents", "Birds"}; petNums = new Integer[]{3, 3}; disability = new String[]{"Braille"};
         listings.add(new ListingProfile(3, "Lee-Harvey", "Oswald", "1001 Laawrence Ave", "V1Y6M3", 49.885195004951754, -119.4798947026987, petTypes, petNums, disability, 1, 0, false, true, false));
 
-        mMap.addMarker(new MarkerOptions().position(listings.get(0).coordinates).title(listings.get(0).location));
-        mMap.addMarker(new MarkerOptions().position(listings.get(1).coordinates).title(listings.get(1).location));
-        mMap.addMarker(new MarkerOptions().position(listings.get(2).coordinates).title(listings.get(2).location));
+        int id = 4;
+        for (String s : FileReader.read(this.getFilesDir().toPath().toString() + "/listings.txt", this, 0))
+        {
+            String[] splitLine = s.split(">");
+            double lat, lng;
+            String[] pt = (Boolean.parseBoolean(splitLine[])) ? {""} : {"Dogs", "Cats", "Birds", "Reptiles", "Rodents"}; Integer[] pn =
+            final Geocoder geocoder = new Geocoder(this);
+            final String code = splitLine[10];
+            try {
+                List<Address> addresses = geocoder.getFromLocationName(code, 1);
+                if (addresses != null && !addresses.isEmpty())
+                {
+                    Address address = addresses.get(0);
+                    // Use the address as needed
+                    lat = address.getLatitude(); lng = address.getLongitude();
+                } else {
+                    // Display appropriate message when Geocoder services are not available
+                    Toast.makeText(this, "Unable to geocode zipcode", Toast.LENGTH_LONG).show();
+                }
+            } catch (IOException e) {
+                // handle exception
+            }
+            listings.add(new ListingProfile(4, "Profile", "Name", splitLine[10], ))
+        }
+
+        mMap.addMarker(new MarkerOptions().position(listings.get(0).getLatLng()).title(listings.get(0).location));
+        mMap.addMarker(new MarkerOptions().position(listings.get(1).getLatLng()).title(listings.get(1).location));
+        mMap.addMarker(new MarkerOptions().position(listings.get(2).getLatLng()).title(listings.get(2).location));
 
 //        mMap.addMarker(new MarkerOptions().position(Kelowna).title("Marker"));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(10));
@@ -82,7 +112,7 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
                 ListingProfile lp;
                 for (int i = 0; i < listings.size(); i++)
                 {
-                    if (marker.getPosition().equals(listings.get(i).coordinates))
+                    if (marker.getPosition().equals(listings.get(i).getLatLng()))
                     {
                         displayPopUp(listings.get(i));
                     }
@@ -219,7 +249,7 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
             }
             if (validListing)
             {
-                mMap.addMarker(new MarkerOptions().position(lp.coordinates));
+                mMap.addMarker(new MarkerOptions().position(lp.getLatLng()));
             }
 
         }

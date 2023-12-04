@@ -1,8 +1,9 @@
 package com.example.projectstep4;
 
+import java.io.Serializable;
 import java.util.Map;
 
-public class Profile
+public class Profile implements Serializable
 {
     private int pID;
     private String fName, lName;

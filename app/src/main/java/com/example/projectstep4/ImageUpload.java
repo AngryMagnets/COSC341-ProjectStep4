@@ -23,8 +23,6 @@ public class ImageUpload extends AppCompatActivity {
     String postal;
     Uri selectedImage;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
