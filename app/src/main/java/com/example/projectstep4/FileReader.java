@@ -21,7 +21,7 @@ public class FileReader {
             int i = 0;
             while ((line = br.readLine()) != null) {
                 if (i == lineNum) {
-                    out = line.split(",");
+                    out = line.split(">");
                 }
                 i++;
             }

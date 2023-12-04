@@ -3,8 +3,11 @@ package com.example.projectstep4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.Toast;
 import android.widget.EditText;
@@ -18,6 +21,15 @@ public class MakeReport extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_report);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK && data != null){
+            Uri selectedImage = data.getData();
+            ImageButton button = findViewById(R.id.imageButton);
+            button.setImageURI(selectedImage);
+        }
     }
 
     public void back(View view){
@@ -69,5 +81,9 @@ public class MakeReport extends AppCompatActivity {
             intent.putExtras(extras);
             startActivity(intent);
         }
+    }
+    public void upload(View view){
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, 3);
     }
 }

@@ -32,6 +32,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="512dp"
+        android:text="Enter your postal code:"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/question9"
         android:layout_width="272dp"
         android:layout_height="20dp"
@@ -60,7 +72,6 @@
         android:id="@+id/next"
         android:layout_width="175dp"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="675dp"
         android:backgroundTint="@color/ui_blue"
         android:lineSpacingExtra="0sp"
@@ -70,22 +81,8 @@
         android:textSize="14sp"
         app:cornerRadius="2dp"
         app:iconPadding="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="175dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="675dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/ui_blue"
-        android:onClick="draft"
-        android:text="Save Draft and Exit"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:cornerRadius="2dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -160,6 +157,24 @@
         android:hint="eg. ramps, elavators"
         android:inputType="text"
 
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question8" />
+
+    <EditText
+        android:id="@+id/answer"
+        android:layout_width="348dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="212dp"
+        android:background="@drawable/roundedcorners"
+        android:ems="10"
+        android:hint="eg. V1V1V1"
+        android:maxLength="6"
+
+        android:inputType="text"
         android:paddingLeft="10dp"
         android:singleLine="true"
         android:textSize="14sp"
@@ -304,15 +319,16 @@
     <EditText
         android:id="@+id/answer4"
         android:layout_width="348dp"
-        android:layout_height="131dp"
+        android:layout_height="100dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="400dp"
         android:background="@drawable/roundedcorners"
         android:clipToOutline="true"
         android:ems="10"
         android:gravity="top|start"
-        android:hint="eg. no smoking, no pets, no children"
-        android:inputType="textMultiLine"
+        android:hint="Pets Allowed:"
+        android:inputType="none"
+        android:editable="false"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:singleLine="true"
@@ -320,6 +336,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <CheckBox
+        android:id="@+id/pa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/answer4"
+        app:layout_constraintTop_toBottomOf="@+id/question10" />
+
+    <CheckBox
+        android:id="@+id/ca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        app:layout_constraintEnd_toEndOf="@+id/answer4"
+        app:layout_constraintTop_toBottomOf="@+id/question10" />
+
+    <CheckBox
+        android:id="@+id/sa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="@+id/answer4"
+        app:layout_constraintTop_toBottomOf="@+id/question10" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="43dp"
+        android:text="Children Allowed:"
+        app:layout_constraintBottom_toBottomOf="@+id/answer4"
+        app:layout_constraintStart_toStartOf="@+id/answer4" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Smoking Allowed:"
+        app:layout_constraintBottom_toBottomOf="@+id/answer4"
+        app:layout_constraintStart_toStartOf="@+id/answer4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

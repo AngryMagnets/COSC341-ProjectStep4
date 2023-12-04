@@ -189,15 +189,16 @@
             android:text="Other (ex. hurricane, blizzard)" />
     </RadioGroup>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="334dp"
-        android:layout_height="194dp"
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
         android:layout_marginTop="435dp"
-        android:src="@drawable/photos"
+        android:backgroundTint="@color/bg_grey"
+        android:onClick="upload"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_upload" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

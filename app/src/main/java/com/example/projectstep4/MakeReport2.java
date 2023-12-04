@@ -76,7 +76,7 @@ public class MakeReport2 extends FragmentActivity implements OnMapReadyCallback{
     }
 
     public void submit(View view){
-        FileWriter.write("reports.txt", name + "," + lat + "," + lng + "\n", this);
+        FileWriter.write("reports.txt", name + ">" + lat + ">" + lng + "\n", this);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
