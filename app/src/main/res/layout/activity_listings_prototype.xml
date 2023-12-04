@@ -96,7 +96,8 @@
         android:id="@+id/searchFilterGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="filtersText,checkBox,checkBox2,checkBox3,checkBox4,checkBox5,checkBox6,textView22,button,checkBox7,textView23,editTextNumber,editTextNumber2,editTextNumber3,editTextNumber4,editTextNumber5,editTextNumber6,textView24,spinner" />
+        app:constraint_referenced_ids="filtersText,checkBox,checkBox2,checkBox3,checkBox4,checkBox5,checkBox6,textView22,button,checkBox7,textView23,editTextNumber,editTextNumber2,editTextNumber3,editTextNumber4,editTextNumber5,editTextNumber6,textView24,spinner"
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/filtersText"
@@ -315,5 +316,52 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView24"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/popupGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="popupText,viewListingButton,popupCloseButton" />
+
+    <Button
+        android:id="@+id/popupCloseButton"
+        android:layout_width="34dp"
+        android:layout_height="44dp"
+        android:text="X"
+        android:onClick="hidePopUp"
+        app:layout_constraintBottom_toBottomOf="@+id/popupText"
+        app:layout_constraintEnd_toEndOf="@+id/popupText"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="@+id/popupText"
+        app:layout_constraintTop_toTopOf="@+id/popupText"
+        app:layout_constraintVertical_bias="0.035" />
+
+    <TextView
+        android:id="@+id/popupText"
+        android:layout_width="291dp"
+        android:layout_height="184dp"
+        android:background="@color/bg_grey"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/map"
+        app:layout_constraintVertical_bias="0.37" />
+
+    <Button
+        android:id="@+id/viewListingButton"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_ui_general"
+        android:text="View Listing"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/popupText"
+        app:layout_constraintEnd_toEndOf="@+id/popupText"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/popupText"
+        app:layout_constraintTop_toTopOf="@+id/popupText"
+        app:layout_constraintVertical_bias="0.914" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,15 @@
 package com.example.projectstep4;
 
+import com.google.android.gms.maps.model.LatLng;
+
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ListingProfile extends Profile
+public class ListingProfile extends Profile implements Serializable
 {
     String location, postalCode;
-    double[] coordinates;
+    LatLng coordinates;
     HashMap<String, Integer> petsAllowed;
     String[] disabilityAccommodations;
     int peopleAllowed, proximityToBus;
@@ -14,11 +17,11 @@ public class ListingProfile extends Profile
           , smokingAllowed
           , willHelpMoveItems;
 
-    public ListingProfile (int id, String fn, String ln, String l, String pCode, double[] c, String[] petTypes, Integer[] petNums, String[] disability, int people, int busProx, boolean ca, boolean sa, boolean whm)
+    public ListingProfile (int id, String fn, String ln, String l, String pCode, double lat, double lng, String[] petTypes, Integer[] petNums, String[] disability, int people, int busProx, boolean ca, boolean sa, boolean whm)
     {
         super (id, fn, ln);
         location = l; postalCode = pCode;
-        coordinates = c;
+        coordinates = new LatLng(lat, lng);
 
         petsAllowed = new HashMap<>();
         for (int i = 0; i < petTypes.length; i++)
@@ -37,7 +40,7 @@ public class ListingProfile extends Profile
         petsAllowed = new HashMap<>();
         for (int i = 0; i < petTypes.length; i++)
         {
-            petsAllowed.put(petTypes[i],petNums[i]);
+            petsAllowed.put(petTypes[i],petNums[i]) ;
         }
         disabilityAccommodations = disability;
         peopleAllowed = people;
