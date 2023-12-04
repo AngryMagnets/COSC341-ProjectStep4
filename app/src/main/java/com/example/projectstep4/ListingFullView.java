@@ -31,6 +31,12 @@ public class ListingFullView extends AppCompatActivity
 
         petStr = "Pets Allowed: ";
         ArrayList<String> als = (ArrayList<String>) lp.petsAllowed.keySet(); ArrayList<Integer> ali = (ArrayList<Integer>) lp.petsAllowed.values();
+        for(int j = 0; j < lp.petsAllowed.size(); j++)
+        {
+            petStr += "\n" + als.get(j) + ": " + ali.get(j);
+        }
+
+        genStr = "General Info: ";
     }
 
     public void back (View v)
