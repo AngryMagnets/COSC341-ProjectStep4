@@ -38,7 +38,7 @@ public class DisasterMap extends FragmentActivity implements OnMapReadyCallback 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(Kelowna));
         int i = 0;
         String[] line;
-        while((line = FileReaderPS4.read("reports.txt",this,i))!=null){
+        while((line = FileReader.read("reports.txt",this,i))!=null){
             String name = line[0];
             double lat = Double.parseDouble(line[1]);
             double lng = Double.parseDouble(line[2]);
