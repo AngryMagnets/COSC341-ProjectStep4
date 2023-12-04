@@ -253,5 +253,31 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
         Group puGroup = findViewById(R.id.popupGroup);
         TextView previewText = findViewById(R.id.popupText);
         Button viewFull = findViewById(R.id.viewListingButton);
+
+        switch (puGroup.getVisibility())
+        {
+            case View.VISIBLE:
+                puGroup.setVisibility(View.GONE);
+                break;
+            case View.GONE:
+                previewText.setText("\n\n\nAddress: " + lp.location + "\nPeople Allowed: " + lp.peopleAllowed);
+                puGroup.setVisibility(View.VISIBLE);
+                viewFull.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick (View v)
+                    {
+                        Intent i = new Intent(v.getContext(), ListingFullView.class);
+                        i.putExtra("Listing Profile", lp);
+                        startActivity(i);
+                    }
+                });
+                break;
+        }
+    }
+    public void hidePopUp (View v)
+    {
+        Group puGroup = findViewById(R.id.popupGroup);
+        puGroup.setVisibility(View.GONE);
     }
 }

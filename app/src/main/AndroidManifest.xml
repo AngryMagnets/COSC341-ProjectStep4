@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectStep4"
         tools:targetApi="34">
-
+        <activity
+            android:name=".ListingFullView"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

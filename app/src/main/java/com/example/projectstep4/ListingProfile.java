@@ -2,10 +2,11 @@ package com.example.projectstep4;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ListingProfile extends Profile
+public class ListingProfile extends Profile implements Serializable
 {
     String location, postalCode;
     LatLng coordinates;
@@ -39,7 +40,7 @@ public class ListingProfile extends Profile
         petsAllowed = new HashMap<>();
         for (int i = 0; i < petTypes.length; i++)
         {
-            petsAllowed.put(petTypes[i],petNums[i]);
+            petsAllowed.put(petTypes[i],petNums[i]) ;
         }
         disabilityAccommodations = disability;
         peopleAllowed = people;
