@@ -29,6 +29,7 @@ import com.example.projectstep4.databinding.ActivityListingsPrototypeBinding;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -60,13 +61,13 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
 
         String[] petTypes = {"Dogs", "Cats",};
         Integer[] petNums = {1, 1};
-        String[] disability = {"None"};
+        String[] disability = {"None", "None", "None", "None"};
         listings.add(new ListingProfile(1, "George", "Miller", "2550 Hollywood Rd N", "V1V2S6", 49.92274659797061, -119.39680384502684, petTypes, petNums, disability, 3, 0, false, false, false));
 
-        petTypes = new String[]{"Reptiles"}; petNums = new Integer[]{1}; disability = new String[]{"Stair Lift"};
+        petTypes = new String[]{"Reptiles"}; petNums = new Integer[]{1}; disability = new String[]{"", "Stair Lift", "", ""};
         listings.add(new ListingProfile(2, "Cucumberpatch", "Bundersnunds", "1650 Wilmot Avenue", "V1P1M8", 49.871461579271276, -119.35443054316214, petTypes, petNums, disability, 4, 1, true, false, true));
 
-        petTypes = new String[]{"Rodents", "Birds"}; petNums = new Integer[]{3, 3}; disability = new String[]{"Braille"};
+        petTypes = new String[]{"Rodents", "Birds"}; petNums = new Integer[]{3, 3}; disability = new String[]{"", "", "Braille", ""};
         listings.add(new ListingProfile(3, "Lee-Harvey", "Oswald", "1001 Laawrence Ave", "V1Y6M3", 49.885195004951754, -119.4798947026987, petTypes, petNums, disability, 1, 0, false, true, false));
 
         int id = 4;
@@ -80,7 +81,7 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
             double lat = 0, lng = 0;
             String[] pt = (Boolean.parseBoolean(lineInfo[7])) ? new String[]{"Dogs", "Cats", "Birds", "Reptiles", "Rodents"} : new String[]{"None"};
             Integer[] pn = (Boolean.parseBoolean(lineInfo[7])) ? new Integer[]{2, 2, 2, 2, 2} : new Integer[]{-1};
-            String[] da = new String[]{"None"};
+            String[] da = new String[]{"None", "None", "None", "None"};
             final Geocoder geocoder = new Geocoder(this);
             final String code = lineInfo[10];
             try
@@ -154,11 +155,15 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
         {
             general.add(c.isChecked());
         }
-        for (CheckBox c : disabilityBoxes)
+        for (int i = 0; i < 4; i++)
         {
-            if (c.isChecked())
+            if (disabilityBoxes[i].isChecked())
             {
-                disability.add(c.getText().toString());
+                disability.add(disabilityBoxes[i].getText().toString());
+            }
+            else
+            {
+                disability.add("");
             }
         }
         for (EditText e : petFields)
@@ -244,18 +249,7 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
             }
             for (int i = 0; i < searchLP.disabilityAccommodations.length; i++)
             {
-                for (int j = 0; j < lp.disabilityAccommodations.length; i++)
-                {
-                    if (searchLP.disabilityAccommodations[i].equals(lp.disabilityAccommodations[j]))
-                    {
-                        validListing = validListing;
-                    }
-                    else if (j == lp.disabilityAccommodations.length - 1)
-                    {
-                        validListing = false;
-                        break;
-                    }
-                }
+                validListing = validListing && (searchLP.disabilityAccommodations[i].equals(lp.disabilityAccommodations[i]) || searchLP.disabilityAccommodations[i].equals(""));
             }
             if (validListing)
             {
