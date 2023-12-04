@@ -76,7 +76,7 @@ public class ImageUpload extends AppCompatActivity {
         CheckBox checkBox = findViewById(R.id.checkBox8);
         if(checkBox.isChecked()) {
             FileWriter.write("listings.txt", accommodations + ">" + numGuests + ">" + numBeds + ">" + numBaths + ">" + laundry + ">" + kitchen + ">" +
-                    disability + ">" + pa + ">" + ca + ">" + sa + ">" + postal + ">" + selectedImage, this);
+                    disability + ">" + pa + ">" + ca + ">" + sa + ">" + postal + ">" + selectedImage+"\n", this);
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }

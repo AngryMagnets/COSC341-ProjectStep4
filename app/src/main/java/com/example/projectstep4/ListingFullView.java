@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ListingFullView extends AppCompatActivity
 {
-
+    int profileID = 0;
     @Override
     protected void onCreate (Bundle savedInstanceState)
     {
@@ -29,12 +29,13 @@ public class ListingFullView extends AppCompatActivity
 
         Intent i = getIntent();
         ListingProfile lp = i.getSerializableExtra("Listing Profile", ListingProfile.class);
+        profileID = lp.getpID();
 
         ImageView img = findViewById(R.id.imageView3);
         TextView primary = findViewById(R.id.textView25), pets = findViewById(R.id.textView26), general = findViewById(R.id.textView27);
         String pmrStr, petStr, genStr;
 
-        pmrStr = "Postal Code: " + lp.postalCode + "\nOwner Name: " + lp.getfName();
+        pmrStr = "Postal Code: " + lp.postalCode + "\nOwner: " + lp.getfName();
 
         petStr = "Pets Allowed: ";
         Set<String> ALS = lp.petsAllowed.keySet();
@@ -57,32 +58,25 @@ public class ListingFullView extends AppCompatActivity
         }
         primary.setText(pmrStr); pets.setText(petStr); general.setText(genStr);
 
-        try (BufferedReader br = new BufferedReader(new FileReader(new File(this.getFilesDir().getPath()))))
+        if (lp.getpID() >= 4) // exclusively for uploaded images
         {
-            AtomicInteger id  = new AtomicInteger();
-            br.lines().forEach(s -> {
-                id.getAndIncrement();
-                if (id.intValue()+3  == lp.getpID())
-                {
-                    String u = s.substring(s.lastIndexOf('>') + 1);
-                    img.setImageURI(Uri.parse(u));
-                }
-            });
+            int j = lp.getpID() - 4;
+            String [] lineInfo;
+            lineInfo = FileReaderPS4.read(this.getFilesDir().toPath().toString() + "/listings.txt", this, j);
+            String u = lineInfo[11];
+            img.setImageURI(Uri.parse(u));
         }
-        catch (FileNotFoundException e)
-        {
-            throw new RuntimeException(e);
-        }
-        catch (IOException e)
-        {
-            throw new RuntimeException(e);
-        }
-//        Uri u = Uri.parse();
-//        img.setImageURI(u);
     }
 
     public void back (View v)
     {
         finish();
+    }
+
+    public void goToChat (View v)
+    {
+        Intent i = new Intent(this, ChatMessages.class);
+        i.putExtra("Chat", profileID);
+        startActivity(i);
     }
 }

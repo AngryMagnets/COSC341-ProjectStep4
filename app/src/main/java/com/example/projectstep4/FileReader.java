@@ -7,12 +7,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class FileReaderPS4
+public class FileReader
 {
     public static String[] read(String filename, Context context, int lineNum){
         String[] out = null;
         try {
-            FileInputStream fis = new FileInputStream(filename);
+            FileInputStream fis = context.openFileInput(filename);
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
             String line;

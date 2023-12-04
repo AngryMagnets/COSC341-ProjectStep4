@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -69,16 +70,19 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
         listings.add(new ListingProfile(3, "Lee-Harvey", "Oswald", "1001 Laawrence Ave", "V1Y6M3", 49.885195004951754, -119.4798947026987, petTypes, petNums, disability, 1, 0, false, true, false));
 
         int id = 4;
-        for (String s : FileReaderPS4.read(this.getFilesDir().toPath().toString() + "/listings.txt", this, 1))
-        {
-            String[] splitLine = s.split(">");
-            double lat = 0, lng = 0;
-            String[] pt = (Boolean.parseBoolean(splitLine[7])) ? new String[]{""} : new String[]{"Dogs", "Cats", "Birds", "Reptiles", "Rodents"};
-            Integer[] pn = (Boolean.parseBoolean(splitLine[7])) ? new Integer[]{-1} : new Integer[]{2, 2, 2, 2, 2};
-            String[] da = new String[]{""};
+        int i = 0;
+        String [] lineInfo;
 
+        while((lineInfo = FileReaderPS4.read(this.getFilesDir().toPath().toString() + "/listings.txt", this, i)) != null)
+        {
+            i++;
+            Log.println(Log.DEBUG, "Whoms't inda file", lineInfo[1]);
+            double lat = 0, lng = 0;
+            String[] pt = (Boolean.parseBoolean(lineInfo[7])) ? new String[]{"Dogs", "Cats", "Birds", "Reptiles", "Rodents"} : new String[]{"None"};
+            Integer[] pn = (Boolean.parseBoolean(lineInfo[7])) ? new Integer[]{2, 2, 2, 2, 2} : new Integer[]{-1};
+            String[] da = new String[]{"None"};
             final Geocoder geocoder = new Geocoder(this);
-            final String code = splitLine[10];
+            final String code = lineInfo[10];
             try
             {
                 List<Address> addresses = geocoder.getFromLocationName(code, 1);
@@ -98,14 +102,15 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
             {
                 // handle exception
             }
-            listings.add(new ListingProfile(4, "Profile", "Name", "Private Address", splitLine[10], lat, lng, pt, pn, da, Integer.parseInt(splitLine[1]), 3, Boolean.parseBoolean(splitLine[8]), Boolean.parseBoolean(splitLine[9]), false));
+            listings.add(new ListingProfile(4, "Profile", "Name", "Private Address", lineInfo[10], lat, lng, pt, pn, da, Integer.parseInt(lineInfo[1]), 3, Boolean.parseBoolean(lineInfo[8]), Boolean.parseBoolean(lineInfo[9]), false));
         }
 
-        mMap.addMarker(new MarkerOptions().position(listings.get(0).getLatLng()).title(listings.get(0).location));
-        mMap.addMarker(new MarkerOptions().position(listings.get(1).getLatLng()).title(listings.get(1).location));
-        mMap.addMarker(new MarkerOptions().position(listings.get(2).getLatLng()).title(listings.get(2).location));
-
+//        mMap.addMarker(new MarkerOptions().position(listings.get(0).getLatLng()).title(listings.get(0).location));
+//        mMap.addMarker(new MarkerOptions().position(listings.get(1).getLatLng()).title(listings.get(1).location));
+//        mMap.addMarker(new MarkerOptions().position(listings.get(2).getLatLng()).title(listings.get(2).location));
 //        mMap.addMarker(new MarkerOptions().position(Kelowna).title("Marker"));
+
+        updatePins();
         mMap.moveCamera(CameraUpdateFactory.zoomTo(10));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(49.8801, -119.4436)));
 
@@ -257,6 +262,14 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
                 mMap.addMarker(new MarkerOptions().position(lp.getLatLng()));
             }
 
+        }
+    }
+    public void updatePins ()
+    {
+        mMap.clear();
+        for (ListingProfile lp : listings)
+        {
+            mMap.addMarker(new MarkerOptions().title(lp.location).position(lp.getLatLng()));
         }
     }
     public void toggleFilters (View v)

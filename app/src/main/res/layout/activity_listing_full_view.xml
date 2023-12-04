@@ -43,7 +43,7 @@
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.768"
+        app:layout_constraintHorizontal_bias="0.872"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.632" />
@@ -83,6 +83,7 @@
         android:background="@drawable/btn_ui_general"
         android:text="Chat With Owner"
         android:textColor="@color/white"
+        android:onClick="goToChat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
