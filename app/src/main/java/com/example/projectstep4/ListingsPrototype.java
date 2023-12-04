@@ -46,6 +46,7 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        toggleFilters();
     }
     @Override
     public void onMapReady (GoogleMap googleMap)

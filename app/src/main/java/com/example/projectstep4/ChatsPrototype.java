@@ -69,7 +69,7 @@ public class ChatsPrototype extends AppCompatActivity
                 }
                 for (int i = 0; i < numChats; i++)
                 {
-                    if (chats[i].getText().toString().contains(t))
+                    if (chats[i].getText().toString().toLowerCase().contains(t.toLowerCase()))
                     {
                         chats[i].setVisibility(View.VISIBLE);
                         pfps[i].setVisibility(View.VISIBLE);
