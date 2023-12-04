@@ -93,10 +93,17 @@
         app:layout_constraintTop_toBottomOf="@+id/listingPreviewText" />
 
     <androidx.constraintlayout.widget.Group
+        android:id="@+id/popupGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="button4" />
+
+    <androidx.constraintlayout.widget.Group
         android:id="@+id/searchFilterGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="filtersText,checkBox,checkBox2,checkBox3,checkBox4,checkBox5,checkBox6,textView22,button,checkBox7,textView23,editTextNumber,editTextNumber2,editTextNumber3,editTextNumber4,editTextNumber5,editTextNumber6,textView24,spinner" />
+        app:constraint_referenced_ids="filtersText,checkBox,checkBox2,checkBox3,checkBox4,checkBox5,checkBox6,textView22,button,checkBox7,textView23,editTextNumber,editTextNumber2,editTextNumber3,editTextNumber4,editTextNumber5,editTextNumber6,textView24,spinner"
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/filtersText"
@@ -315,5 +322,26 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView24"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <Button
+        android:id="@+id/viewListingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+    <TextView
+        android:id="@+id/popupText"
+        android:layout_width="217dp"
+        android:layout_height="295dp"
+        android:background="@color/bg_grey"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/map"
+        app:layout_constraintVertical_bias="0.36" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

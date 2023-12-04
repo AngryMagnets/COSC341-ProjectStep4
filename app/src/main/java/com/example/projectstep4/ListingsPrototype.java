@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentActivity;
@@ -19,6 +21,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.projectstep4.databinding.ActivityListingsPrototypeBinding;
 
@@ -52,28 +55,41 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
         UiSettings ui = mMap.getUiSettings();
         ui.setZoomControlsEnabled(true);
 
-        double[] coordArr = {49.9246018490676, -119.39788471603666};
         String[] petTypes = {"Dogs", "Cats",};
         Integer[] petNums = {1, 1};
         String[] disability = {"None"};
-        listings.add(new ListingProfile(1, "George", "Miller", "2550 Hollywood Rd N", "V1V2S6", coordArr, petTypes, petNums, disability, 3, 0, false, false, false));
-        coordArr[0] = 49.87146513845679; coordArr[1] = -119.35451099325275;
-        petTypes = new String[]{"Reptiles"}; petNums = new Integer[]{1}; disability = new String[]{"Stair Lift"};
-        listings.add(new ListingProfile(2, "Cucumberpatch", "Bundersnunds", "1650 Wilmot Avenue", "V1P1M8", coordArr, petTypes, petNums, disability, 4, 1, true, false, true));
-        coordArr[0] = 49.88512587673185; coordArr[1] = -119.47984105852287;
-        petTypes = new String[]{"Rodents", "Birds"}; petNums = new Integer[]{3, 3}; disability = new String[]{"Braille"};
-        listings.add(new ListingProfile(3, "Lee-Harvey", "Oswald", "1650 Wilmot Avenue", "V1Y6M3", coordArr, petTypes, petNums, disability, 1, 0, false, true, false));
+        listings.add(new ListingProfile(1, "George", "Miller", "2550 Hollywood Rd N", "V1V2S6", 49.92274659797061, -119.39680384502684, petTypes, petNums, disability, 3, 0, false, false, false));
 
-        LatLng[] ll = {new LatLng(listings.get(0).coordinates[0], listings.get(0).coordinates[1]),
-                       new LatLng(listings.get(1).coordinates[0], listings.get(1).coordinates[1]),
-                       new LatLng(listings.get(2).coordinates[0], listings.get(2).coordinates[1])};
-        mMap.addMarker(new MarkerOptions().position(ll[0]).title(listings.get(0).location));
-        mMap.addMarker(new MarkerOptions().position(ll[1]).title(listings.get(1).location));
-        mMap.addMarker(new MarkerOptions().position(ll[2]).title(listings.get(2).location));
+        petTypes = new String[]{"Reptiles"}; petNums = new Integer[]{1}; disability = new String[]{"Stair Lift"};
+        listings.add(new ListingProfile(2, "Cucumberpatch", "Bundersnunds", "1650 Wilmot Avenue", "V1P1M8", 49.871461579271276, -119.35443054316214, petTypes, petNums, disability, 4, 1, true, false, true));
+
+        petTypes = new String[]{"Rodents", "Birds"}; petNums = new Integer[]{3, 3}; disability = new String[]{"Braille"};
+        listings.add(new ListingProfile(3, "Lee-Harvey", "Oswald", "1001 Laawrence Ave", "V1Y6M3", 49.885195004951754, -119.4798947026987, petTypes, petNums, disability, 1, 0, false, true, false));
+
+        mMap.addMarker(new MarkerOptions().position(listings.get(0).coordinates).title(listings.get(0).location));
+        mMap.addMarker(new MarkerOptions().position(listings.get(1).coordinates).title(listings.get(1).location));
+        mMap.addMarker(new MarkerOptions().position(listings.get(2).coordinates).title(listings.get(2).location));
 
 //        mMap.addMarker(new MarkerOptions().position(Kelowna).title("Marker"));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(10));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(49.8801, -119.4436)));
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
+        {
+            @Override
+            public boolean onMarkerClick (@NonNull Marker marker)
+            {
+                ListingProfile lp;
+                for (int i = 0; i < listings.size(); i++)
+                {
+                    if (marker.getPosition().equals(listings.get(i).coordinates))
+                    {
+                        displayPopUp(listings.get(i));
+                    }
+                }
+                return false;
+            }
+        });
     }
     public void back (View v)
     {
@@ -203,11 +219,11 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
             }
             if (validListing)
             {
-                mMap.addMarker(new MarkerOptions().position(new LatLng(lp.coordinates[0], lp.coordinates[1])));
+                mMap.addMarker(new MarkerOptions().position(lp.coordinates));
             }
+
         }
     }
-
     public void toggleFilters (View v)
     {
         Group filterParent = findViewById(R.id.searchFilterGroup);
@@ -231,5 +247,11 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
             case View.GONE:
                 filterParent.setVisibility(View.VISIBLE);
         }
+    }
+    public void displayPopUp (ListingProfile lp)
+    {
+        Group puGroup = findViewById(R.id.popupGroup);
+        TextView previewText = findViewById(R.id.popupText);
+        Button viewFull = findViewById(R.id.viewListingButton);
     }
 }
