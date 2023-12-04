@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentActivity;
 
@@ -30,7 +28,6 @@ import com.example.projectstep4.databinding.ActivityListingsPrototypeBinding;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -72,28 +69,36 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
         listings.add(new ListingProfile(3, "Lee-Harvey", "Oswald", "1001 Laawrence Ave", "V1Y6M3", 49.885195004951754, -119.4798947026987, petTypes, petNums, disability, 1, 0, false, true, false));
 
         int id = 4;
-        for (String s : FileReader.read(this.getFilesDir().toPath().toString() + "/listings.txt", this, 0))
+        for (String s : FileReaderPS4.read(this.getFilesDir().toPath().toString() + "/listings.txt", this, 1))
         {
             String[] splitLine = s.split(">");
-            double lat, lng;
-            String[] pt = (Boolean.parseBoolean(splitLine[])) ? {""} : {"Dogs", "Cats", "Birds", "Reptiles", "Rodents"}; Integer[] pn =
+            double lat = 0, lng = 0;
+            String[] pt = (Boolean.parseBoolean(splitLine[7])) ? new String[]{""} : new String[]{"Dogs", "Cats", "Birds", "Reptiles", "Rodents"};
+            Integer[] pn = (Boolean.parseBoolean(splitLine[7])) ? new Integer[]{-1} : new Integer[]{2, 2, 2, 2, 2};
+            String[] da = new String[]{""};
+
             final Geocoder geocoder = new Geocoder(this);
             final String code = splitLine[10];
-            try {
+            try
+            {
                 List<Address> addresses = geocoder.getFromLocationName(code, 1);
                 if (addresses != null && !addresses.isEmpty())
                 {
                     Address address = addresses.get(0);
                     // Use the address as needed
                     lat = address.getLatitude(); lng = address.getLongitude();
-                } else {
-                    // Display appropriate message when Geocoder services are not available
-                    Toast.makeText(this, "Unable to geocode zipcode", Toast.LENGTH_LONG).show();
                 }
-            } catch (IOException e) {
+                else
+                {
+                    // Display appropriate message when Geocoder services are not available
+                    Toast.makeText(this, "Rip bozo AYYYLMAO", Toast.LENGTH_LONG).show();
+                }
+            }
+            catch (IOException e)
+            {
                 // handle exception
             }
-            listings.add(new ListingProfile(4, "Profile", "Name", splitLine[10], ))
+            listings.add(new ListingProfile(4, "Profile", "Name", "Private Address", splitLine[10], lat, lng, pt, pn, da, Integer.parseInt(splitLine[1]), 3, Boolean.parseBoolean(splitLine[8]), Boolean.parseBoolean(splitLine[9]), false));
         }
 
         mMap.addMarker(new MarkerOptions().position(listings.get(0).getLatLng()).title(listings.get(0).location));
