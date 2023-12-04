@@ -9,7 +9,7 @@ import java.util.Map;
 public class ListingProfile extends Profile implements Serializable
 {
     String location, postalCode;
-    LatLng coordinates;
+    double[] coordinates;
     HashMap<String, Integer> petsAllowed;
     String[] disabilityAccommodations;
     int peopleAllowed, proximityToBus;
@@ -21,7 +21,7 @@ public class ListingProfile extends Profile implements Serializable
     {
         super (id, fn, ln);
         location = l; postalCode = pCode;
-        coordinates = new LatLng(lat, lng);
+        coordinates = new double[]{lat, lng};
 
         petsAllowed = new HashMap<>();
         for (int i = 0; i < petTypes.length; i++)
@@ -46,7 +46,10 @@ public class ListingProfile extends Profile implements Serializable
         peopleAllowed = people;
         childrenAllowed = ca;
     }
-
+    public LatLng getLatLng ()
+    {
+        return new LatLng(coordinates[0], coordinates[1]);
+    }
     public HashMap<String, Integer> getPetsAllowed ()
     {
         return petsAllowed;

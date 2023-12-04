@@ -1,6 +1,8 @@
 package com.example.projectstep4;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,9 +11,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentActivity;
 
@@ -25,8 +27,10 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.projectstep4.databinding.ActivityListingsPrototypeBinding;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class ListingsPrototype extends FragmentActivity implements OnMapReadyCallback
@@ -58,20 +62,57 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
 
         String[] petTypes = {"Dogs", "Cats",};
         Integer[] petNums = {1, 1};
-        String[] disability = {"None"};
+        String[] disability = {"None", "None", "None", "None"};
         listings.add(new ListingProfile(1, "George", "Miller", "2550 Hollywood Rd N", "V1V2S6", 49.92274659797061, -119.39680384502684, petTypes, petNums, disability, 3, 0, false, false, false));
 
-        petTypes = new String[]{"Reptiles"}; petNums = new Integer[]{1}; disability = new String[]{"Stair Lift"};
+        petTypes = new String[]{"Reptiles"}; petNums = new Integer[]{1}; disability = new String[]{"", "Stair Lift", "", ""};
         listings.add(new ListingProfile(2, "Cucumberpatch", "Bundersnunds", "1650 Wilmot Avenue", "V1P1M8", 49.871461579271276, -119.35443054316214, petTypes, petNums, disability, 4, 1, true, false, true));
 
-        petTypes = new String[]{"Rodents", "Birds"}; petNums = new Integer[]{3, 3}; disability = new String[]{"Braille"};
+        petTypes = new String[]{"Rodents", "Birds"}; petNums = new Integer[]{3, 3}; disability = new String[]{"", "", "Braille", ""};
         listings.add(new ListingProfile(3, "Lee-Harvey", "Oswald", "1001 Laawrence Ave", "V1Y6M3", 49.885195004951754, -119.4798947026987, petTypes, petNums, disability, 1, 0, false, true, false));
 
-        mMap.addMarker(new MarkerOptions().position(listings.get(0).coordinates).title(listings.get(0).location));
-        mMap.addMarker(new MarkerOptions().position(listings.get(1).coordinates).title(listings.get(1).location));
-        mMap.addMarker(new MarkerOptions().position(listings.get(2).coordinates).title(listings.get(2).location));
+        int id = 4;
+        int i = 0;
+        String [] lineInfo;
 
+        while((lineInfo = FileReaderPS4.read(this.getFilesDir().toPath().toString() + "/listings.txt", this, i)) != null)
+        {
+            i++;
+            Log.println(Log.DEBUG, "Whoms't inda file", lineInfo[1]);
+            double lat = 0, lng = 0;
+            String[] pt = (Boolean.parseBoolean(lineInfo[7])) ? new String[]{"Dogs", "Cats", "Birds", "Reptiles", "Rodents"} : new String[]{"None"};
+            Integer[] pn = (Boolean.parseBoolean(lineInfo[7])) ? new Integer[]{2, 2, 2, 2, 2} : new Integer[]{-1};
+            String[] da = new String[]{"None", "None", "None", "None"};
+            final Geocoder geocoder = new Geocoder(this);
+            final String code = lineInfo[10];
+            try
+            {
+                List<Address> addresses = geocoder.getFromLocationName(code, 1);
+                if (addresses != null && !addresses.isEmpty())
+                {
+                    Address address = addresses.get(0);
+                    // Use the address as needed
+                    lat = address.getLatitude(); lng = address.getLongitude();
+                }
+                else
+                {
+                    // Display appropriate message when Geocoder services are not available
+                    Toast.makeText(this, "Rip bozo AYYYLMAO", Toast.LENGTH_LONG).show();
+                }
+            }
+            catch (IOException e)
+            {
+                // handle exception
+            }
+            listings.add(new ListingProfile(4, "Profile", "Name", "Private Address", lineInfo[10], lat, lng, pt, pn, da, Integer.parseInt(lineInfo[1]), 3, Boolean.parseBoolean(lineInfo[8]), Boolean.parseBoolean(lineInfo[9]), false));
+        }
+
+//        mMap.addMarker(new MarkerOptions().position(listings.get(0).getLatLng()).title(listings.get(0).location));
+//        mMap.addMarker(new MarkerOptions().position(listings.get(1).getLatLng()).title(listings.get(1).location));
+//        mMap.addMarker(new MarkerOptions().position(listings.get(2).getLatLng()).title(listings.get(2).location));
 //        mMap.addMarker(new MarkerOptions().position(Kelowna).title("Marker"));
+
+        updatePins();
         mMap.moveCamera(CameraUpdateFactory.zoomTo(10));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(49.8801, -119.4436)));
 
@@ -83,7 +124,7 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
                 ListingProfile lp;
                 for (int i = 0; i < listings.size(); i++)
                 {
-                    if (marker.getPosition().equals(listings.get(i).coordinates))
+                    if (marker.getPosition().equals(listings.get(i).getLatLng()))
                     {
                         displayPopUp(listings.get(i));
                     }
@@ -115,11 +156,15 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
         {
             general.add(c.isChecked());
         }
-        for (CheckBox c : disabilityBoxes)
+        for (int i = 0; i < 4; i++)
         {
-            if (c.isChecked())
+            if (disabilityBoxes[i].isChecked())
             {
-                disability.add(c.getText().toString());
+                disability.add(disabilityBoxes[i].getText().toString());
+            }
+            else
+            {
+                disability.add("");
             }
         }
         for (EditText e : petFields)
@@ -205,24 +250,21 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
             }
             for (int i = 0; i < searchLP.disabilityAccommodations.length; i++)
             {
-                for (int j = 0; j < lp.disabilityAccommodations.length; i++)
-                {
-                    if (searchLP.disabilityAccommodations[i].equals(lp.disabilityAccommodations[j]))
-                    {
-                        validListing = validListing;
-                    }
-                    else if (j == lp.disabilityAccommodations.length - 1)
-                    {
-                        validListing = false;
-                        break;
-                    }
-                }
+                validListing = validListing && (searchLP.disabilityAccommodations[i].equals(lp.disabilityAccommodations[i]) || searchLP.disabilityAccommodations[i].equals(""));
             }
             if (validListing)
             {
-                mMap.addMarker(new MarkerOptions().position(lp.coordinates));
+                mMap.addMarker(new MarkerOptions().position(lp.getLatLng()));
             }
 
+        }
+    }
+    public void updatePins ()
+    {
+        mMap.clear();
+        for (ListingProfile lp : listings)
+        {
+            mMap.addMarker(new MarkerOptions().title(lp.location).position(lp.getLatLng()));
         }
     }
     public void toggleFilters (View v)

@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
-public class MakeListing extends AppCompatActivity {
+public class MakeListing extends AppCompatActivity
+{
     EditText accommodations;
     EditText numGuests;
     EditText numBeds;
