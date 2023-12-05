@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectStep4"
         tools:targetApi="34">
+        <activity
+            android:name=".Help"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -29,12 +32,13 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
+
         <activity
             android:name=".DisasterMap"
             android:exported="false" />
         <activity
             android:name=".ListingFullView"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MakeReport2"
             android:exported="false" />

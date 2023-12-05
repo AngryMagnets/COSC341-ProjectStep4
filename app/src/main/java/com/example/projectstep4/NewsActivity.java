@@ -44,4 +44,11 @@ public class NewsActivity extends AppCompatActivity {
         intent.putExtras(extras);
         startActivity(intent);
     }
+
+    public void help (View v)
+    {
+        Intent i = new Intent(this, Help.class);
+        i.putExtra("Task", 4);
+        startActivity(i);
+    }
 }

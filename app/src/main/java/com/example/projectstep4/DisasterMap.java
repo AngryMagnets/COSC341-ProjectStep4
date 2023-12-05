@@ -52,4 +52,10 @@ public class DisasterMap extends FragmentActivity implements OnMapReadyCallback 
         Intent intent = new Intent(this, NewsActivity.class);
         startActivity(intent);
     }
+    public void help (View v)
+    {
+        Intent i = new Intent(this, Help.class);
+        i.putExtra("Task", 4);
+        startActivity(i);
+    }
 }

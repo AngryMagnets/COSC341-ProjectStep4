@@ -81,5 +81,10 @@ public class MakeReport2 extends FragmentActivity implements OnMapReadyCallback{
         startActivity(intent);
     }
 
-
+    public void help (View v)
+    {
+        Intent i = new Intent(this, Help.class);
+        i.putExtra("Task", 5);
+        startActivity(i);
+    }
 }

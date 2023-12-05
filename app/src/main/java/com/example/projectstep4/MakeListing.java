@@ -22,23 +22,22 @@ public class MakeListing extends AppCompatActivity
     EditText postal;
 
 
-
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate (Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.make_listing);
         Intent intent = getIntent();
         accommodations = findViewById(R.id.answer1);
         accommodations.setText(intent.getStringExtra("accommodations"));
-        numGuests =  findViewById(R.id.guests);
-        numGuests.setText(intent.getIntExtra("numGuests",1)+"");
+        numGuests = findViewById(R.id.guests);
+        numGuests.setText(intent.getIntExtra("numGuests", 1) + "");
         numBeds = findViewById(R.id.beds);
-        numBeds.setText(intent.getIntExtra("numBeds",1)+"");
+        numBeds.setText(intent.getIntExtra("numBeds", 1) + "");
         numBaths = findViewById(R.id.bathrooms);
-        numBaths.setText(intent.getIntExtra("numBaths",1)+"");
+        numBaths.setText(intent.getIntExtra("numBaths", 1) + "");
         laundry = findViewById(R.id.laundry);
-        laundry.setChecked(intent.getBooleanExtra("laundry",false));
+        laundry.setChecked(intent.getBooleanExtra("laundry", false));
         kitchen = findViewById(R.id.kitchen);
         kitchen.setChecked(intent.getBooleanExtra("kitchen", false));
         disabilityAccommodations = findViewById(R.id.answer2);
@@ -53,14 +52,17 @@ public class MakeListing extends AppCompatActivity
         postal.setText(intent.getStringExtra("postal"));
 
     }
-    public void next(View view){
-        if(accommodations.getText().toString().length() < 1|| disabilityAccommodations.getText().toString().length() < 1 || postal.getText().toString().length() !=6){
+
+    public void next (View view)
+    {
+        if (accommodations.getText().toString().length() < 1 || disabilityAccommodations.getText().toString().length() < 1 || postal.getText().toString().length() != 6)
+        {
             CharSequence text = "Please enter correct/complete information";
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(this, text, duration);
             toast.show();
-        }
-        else {
+        } else
+        {
             Intent intent = new Intent(this, ImageUpload.class);
             Bundle saved = new Bundle();
             saved.putString("accommodations", accommodations.getText().toString());
@@ -78,8 +80,17 @@ public class MakeListing extends AppCompatActivity
             startActivity(intent);
         }
     }
-    public void back(View view){
+
+    public void back (View view)
+    {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void help (View v)
+    {
+        Intent i = new Intent(this, Help.class);
+        i.putExtra("Task", 1);
+        startActivity(i);
     }
 }

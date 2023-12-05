@@ -83,8 +83,15 @@ public class ChatsPrototype extends AppCompatActivity
             }
         });
     }
-    public void back(View view){
+    public void back(View view)
+    {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+    public void help (View v)
+    {
+        Intent i = new Intent(this, Help.class);
+        i.putExtra("Task", 2);
+        startActivity(i);
     }
 }

@@ -323,4 +323,10 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
         Group puGroup = findViewById(R.id.popupGroup);
         puGroup.setVisibility(View.GONE);
     }
+
+    public void help (View v)
+    {
+        Intent i = new Intent(this, Help.class);
+        i.putExtra("Task", 3);
+    }
 }

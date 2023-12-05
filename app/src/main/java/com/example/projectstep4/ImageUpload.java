@@ -87,4 +87,10 @@ public class ImageUpload extends AppCompatActivity {
             toast.show();
         }
     }
+    public void help (View v)
+    {
+        Intent i = new Intent(this, Help.class);
+        i.putExtra("Task", 1);
+        startActivity(i);
+    }
 }
