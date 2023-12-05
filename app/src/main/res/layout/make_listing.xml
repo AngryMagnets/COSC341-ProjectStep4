@@ -16,6 +16,7 @@
         android:text="Describe your accommodations:"
         android:textColor="#000000"
         android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,6 +29,7 @@
         android:text="Does your accommodation offer any accessibility options?"
         android:textColor="#000000"
         android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,6 +42,7 @@
         android:text="Enter your postal code:"
         android:textColor="#000000"
         android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,6 +68,7 @@
         android:text="Any rules or additional info that guests should know:"
         android:textColor="#000000"
         android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/answer4"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -108,6 +112,7 @@
         android:text="What type of accommodation will guests have?"
         android:textColor="#000000"
         android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
