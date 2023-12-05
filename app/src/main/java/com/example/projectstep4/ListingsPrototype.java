@@ -97,7 +97,7 @@ public class ListingsPrototype extends FragmentActivity implements OnMapReadyCal
                 else
                 {
                     // Display appropriate message when Geocoder services are not available
-                    Toast.makeText(this, "Rip bozo AYYYLMAO", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Geocoder Error", Toast.LENGTH_LONG).show();
                 }
             }
             catch (IOException e)
