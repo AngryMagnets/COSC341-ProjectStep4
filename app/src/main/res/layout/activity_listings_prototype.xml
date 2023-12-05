@@ -21,8 +21,8 @@
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="227dp"
-        android:layout_height="45dp"
+        android:layout_width="219dp"
+        android:layout_height="34dp"
         android:background="@drawable/bg_white"
         android:ems="10"
         android:hint="\tAddress or postal code"
@@ -38,31 +38,31 @@
         android:id="@+id/backButton"
         android:layout_width="69dp"
         android:layout_height="33dp"
-        android:text="Back"
         android:background="@drawable/btn_ui_general"
-        android:textColor="@color/white"
         android:onClick="back"
+        android:text="Back"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.022" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="35dp"
         android:background="@drawable/btn_ui_general"
+        android:onClick="toggleFilters"
         android:text="Filters"
         android:textColor="@color/white"
-        android:onClick="toggleFilters"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.987"
+        app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.019" />
+        app:layout_constraintVertical_bias="0.022" />
 
     <TextView
         android:id="@+id/listingPreviewText"
