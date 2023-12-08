@@ -82,7 +82,8 @@ public class MakeReport extends AppCompatActivity {
             startActivity(intent);
         }
     }
-    public void upload(View view){
+    public void upload(View view)
+    {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, 3);
     }
