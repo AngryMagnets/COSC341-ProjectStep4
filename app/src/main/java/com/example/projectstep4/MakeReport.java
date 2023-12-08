@@ -46,7 +46,8 @@ public class MakeReport extends AppCompatActivity {
             if (fire.isChecked()) {
                 disaster = "Fire";
                 next = true;
-            } else if (flood.isChecked()) {
+            } else if (flood.isChecked())
+            {
                 disaster = "Flood";
                 next = true;
             } else if (earthquake.isChecked()) {
